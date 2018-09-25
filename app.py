@@ -141,4 +141,4 @@ def filter_list(placetype_name):
     return result
 
 if __name__=='__main__':
-    pass
+    app.run()
