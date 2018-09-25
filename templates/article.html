@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block title %}{{ location.name }}{% endblock %}
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ url_for('static', filename='article.css') }}">
+
+{% endblock %}
+{% block content %}
+  {% if location %}
+
+  <img src={{ location.image_url }} style="width:100%"/>
+  <div id='article-body'>
+
+
+  <h1 id="name"> {{ location.name }} </h1>
+    {% for review in location.reviews %}
+      <article>
+        <p class="review-content"> {{review.content}} </p>
+        <div class='div-div'>
+
+        <div class='first-div'>
+
+
+        <a class='username' href={{review.member_url}} target="_blank"><p class="review-title"> @{{ review.username }} </p></a>
+        <img class="review-bubble-img" src= "{{ review.rating }}"/>
+        </div>
+        <div class="second-div">
+          <p class='review-date'> {{review.date_string}}</p>
+
+        </div>
+        </div>
+      </article>
+    {% endfor %}
+    <a id='ta-link' href={{location.ta_url}} target="_blank"> See It On TripAdvisor</a>
+
+  </div>
+
+  {% else %}
+
+  {% endif %}
+{% endblock %}

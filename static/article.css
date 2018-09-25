@@ -1,0 +1,105 @@
+#name {
+  font-size: 2em;
+  text-align: left;
+}
+
+.review-title {
+  font-size: 1.5em;
+}
+
+.review-content{
+  font-size: 1.2em;
+  text-decoration: none;
+  list-style-type: none;
+  color: black
+  padding: 0px 0px;
+}
+
+#name {
+  margin-left: 0px;
+  padding-bottom: 13px;
+  border-bottom: 1px solid gray;
+}
+
+article {
+  margin-bottom: 20px;
+}
+
+article p {
+  margin-bottom: 0px;
+  padding-bottom: 10px;
+  padding-top: 0px;
+  margin-top: 0px;
+  line-height: 30px;
+}
+
+.review-content::first-letter {
+  display: block;
+  float: left;
+  font-size: 700%;
+  line-height: 90px;
+  padding-top: 5px;
+  padding-right: 8px;
+  padding-left: 3px;
+  padding-bottom: 10px;
+}
+
+article p, article img {
+  font-size: 1.2em;
+  padding-top: 0px;
+  margin-top: 0px;
+  display: inline-block;
+}
+.review-bubble-img, .username {
+  display: inline-block;
+  text-align: left;
+}
+
+.div-div {
+  width: inherit;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.first-div {
+  grid-column: 1 / 2;
+  text-align: left;
+}
+
+.second-div {
+  grid-column: 2 / 3;
+  text-align: right;
+  display: inline-block;
+}
+
+
+#ta-link {
+  background-color: rgb(0,176,135);
+  border-radius: 1px;
+  padding: 8px 15px;
+  font-family: 'Roboto';
+  color: rgb(245, 245, 245);
+}
+
+#ta-link:hover {
+  opacity: .7;
+}
+
+@media screen and (max-width: 800px) {
+  html {
+    max-width: 100%;
+
+  }
+  body {
+    margin: 0;
+  }
+
+  #article-body {
+    margin: 0 30px;;
+  }
+
+  #name {
+    font-size: 2.5em;
+  }
+
+}

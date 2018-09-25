@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    {% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+      <title>{% block title %}{% endblock %} - TripAdvisor Magazine</title>
+
+    {% endblock %}
+  </head>
+  <body>
+    <header>
+      <a href="/"><h1>TripAdvisor Magazine: London</h1></a>
+      <nav>
+        <a href="/hotels">Hotels</a></li>
+        •
+        <a href="/restaurants">Restaurants</a>
+        •
+        <a href="/attractions">Attractions</a>
+      </nav>
+    </header>
+
+
+    <div id="content">{% block content %}{% endblock %}</div>
+    <div id="footer">
+      {% block footer %}
+      <img id='footer-logo' src="/static/images/TA-Tagline_Centered_on-white-bkg.svg"/>
+      {% endblock %}
+    </div>
+  </body>
+</html>

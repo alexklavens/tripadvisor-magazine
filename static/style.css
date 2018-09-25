@@ -1,0 +1,53 @@
+html {
+  font-family: 'Playfair Display', serif;
+  margin: 0;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 980px;
+}
+
+header h1 {
+  text-align: center;
+  font-size: 50px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  margin: 0px 15px 10px 15px;
+  border-bottom: 3px solid black;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(0, 10, 18);
+}
+
+a:visited {
+  color: inherit;
+}
+
+a:hover {
+  color: rgb(74, 74, 75);
+}
+
+nav {
+
+  text-align: center;
+  padding-bottom: 20px;
+  margin: 0px 15px 20px 15px;
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+  padding: 14px 16px;
+  font-size: 18px;
+}
+
+#footer-logo {
+  display: block;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 50%;
+  width: 300px;
+}

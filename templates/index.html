@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+{% endblock %}
+{% block content %}
+  <div class="row">
+    <div class="column">
+      {% for article in col1 %}
+        <div class="container">
+          <div id="image">
+            <a href={{ article.article_url }}>
+              <img src={{ article.image_url }} style="width:100%"/>
+            </a>
+          </div>
+          <div id="article-preview">
+            <a href={{ article.article_url }}>
+            <div id="title">
+              <p>
+                {{ article.name }}
+              </p>
+            </div>
+          </a>
+            <a href={{"/" ~ article.placetype_name ~ "s"}}>
+            <div id="placetype">
+              <p>
+                {{ article.placetype_name }}
+              </p>
+            </div>
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="column">
+      {% for article in col2 %}
+      <div class="container">
+        <div id="image">
+          <a href={{ article.article_url }}>
+            <img src={{ article.image_url }} style="width:100%"/>
+          </a>
+        </div>
+        <div id="article-preview">
+          <a href={{ article.article_url }}>
+          <div id="title">
+            <p>
+              {{ article.name }}
+            </p>
+          </div>
+        </a>
+          <a href={{"/" ~ article.placetype_name ~ "s"}}>
+          <div id="placetype">
+            <p>
+              {{ article.placetype_name }}
+            </p>
+          </div>
+          </a>
+
+
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="column">
+      {% for article in col3 %}
+      <div class="container">
+        <div id="image">
+          <a href={{ article.article_url }}>
+            <img src={{ article.image_url }} style="width:100%"/>
+          </a>
+        </div>
+        <div id="article-preview">
+          <a href={{ article.article_url }}>
+          <div id="title">
+            <p>
+              {{ article.name }}
+            </p>
+          </div>
+        </a>
+          <a href={{"/" ~ article.placetype_name ~ "s"}}>
+          <div id="placetype">
+            <p>
+              {{ article.placetype_name }}
+            </p>
+          </div>
+          </a>
+
+
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
