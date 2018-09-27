@@ -4,6 +4,7 @@ html {
   padding: 0;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 70px;
   max-width: 980px;
 }
 
@@ -41,6 +42,11 @@ nav a {
   color: black;
   padding: 14px 16px;
   font-size: 18px;
+}
+
+#image a img {
+  border-radius: 2px;
+  filter: contrast(115%);
 }
 
 #footer-logo {
