@@ -6,21 +6,21 @@ There are millions of reviews on TripAdvisor, often containing a few sentences o
 
 TripAdvisor Magazine is a new form of travel media. Its content comes from a non-editorial context, one where a consumer experience is featured in the context of a business profile.
 
-## What We Found
+## The Magazine and Its Content
 
 Many of the articles in TripAdvisor Magazine truly are incredible. Here are a few examples of my favorites:
 
-__[Charles Dickens Museum](https://tripadvisor-magazine.herokuapp.com/article/188889)__ is the story of someone who rediscovered Dickens.
+__This piece on the [Charles Dickens Museum](https://tripadvisor-magazine.herokuapp.com/article/188889)__ is the story of someone who rediscovered some of their favorite childhood literature.
 > "More than any other London attraction, I felt a knot of excitement in my stomach as I turned into Doughty St. and made my way to No. 48. And there it was; standing unadorned except for two discrete signs proclaiming its famous former occupant."
 
-And here's __[a piece on Buckingham Palace](https://tripadvisor-magazine.herokuapp.com/article/187549)__ about someone whose experience was greatly enhanced by the location's handicap accessiblity.
+Here's __[a piece on Buckingham Palace](https://tripadvisor-magazine.herokuapp.com/article/187549)__ about someone whose experience was greatly enhanced by the location's handicap accessiblity.
 
-Just to be clear: not every article in TripAdvisor Magazine is going to win a Pulitzer! Our NLP algorithm was not perfect.
+Just to be clear: not every article in TripAdvisor Magazine is going to win a Pulitzer! Our NLP algorithm was not perfect. But please go read through some of them!
 
-## Who
+## Who, What, When
 
 TripAdvisor Magazine is a product I built with a group for TripAdvisor's
-summer intern hackathon.
+summer intern hackathon during July 2018.
 
 * Alex Klavens -- Data Analytics Intern
 * Mihir Ranha -- Data Science Intern
