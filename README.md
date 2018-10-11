@@ -1,11 +1,8 @@
 # TripAdvisor Magazine
 
-## About
+[TripAdvisor Magazine](https://tripadvisor-magazine.herokuapp.com) is a web-based magazine-style publication that identifies high quality travel reviews with [natural language processing](https://en.wikipedia.org/wiki/Natural_language_processing) and features them as articles.
 
-TripAdvisor Magazine is a magazine-style publication. It's content: the most well-written reviews on TripAdvisor.
-
-There are millions of reviews on TripAdvisor, often containing a few sentences of praise or frustration.
-But among those millions, there are some beautiful, compelling, and lengthy travel essays!
+There are millions of reviews on TripAdvisor, often containing a few sentences of praise or frustration. But among those millions, there are some beautiful, compelling, and lengthy travel essays!
 
 ## Who
 
@@ -23,7 +20,7 @@ We analyzed all reviews of currently-open hotels, restaurants, and attractions i
 
 We used TripAdvisor's internal databases and APIs, rather than public-facing ones.
 
-We make the assumption that this project, at any scale, should not depend on real-time data gathering and language processing. Analyzing all reviews -- even just for London -- takes a while! The content is not likely to drastically change at any given moment. See below...
+We make the assumption that this project, at any scale, should not depend on real-time data gathering and language processing. Analyzing all reviews -- even just for London -- takes a while!
 
 We decided to run database querries and execute NLP offline and store our final results in a way that we could easily process on our server.
 
@@ -37,29 +34,49 @@ Our NLP algorithm analyzed each review for features such as sentiment, spelling 
 
 We also placed some manual filters in the image of editorial submission standards: a minimum word count, a minimum rating, etc.
 
+The final product of the language processing was a table where each row was a review. The process exports a Pickle object containing the table as a Pandas DataFrame.
+
 ## The Web App
 
-We built a Flask application to serve TripAdvisor Magazine
+We built a Flask application to serve TripAdvisor Magazine using Jinja HTML templating. The app unpacks the Pickle object and uses the Pandas dataframe to generate a list of 'Location' objects. Each location has a unique id, which is also the same id for that business used in TripAdvisor's main databases and website.
 
-## Which Locations and Reviews Are Eligible?
+The site serves three main types of pag templates: a home page featuring previews of all available articles, a template for the three verticals (hotels, restaurants, attractions), and an article template.
 
-We used London as our test-case. But for whatever geographic scope, we analyze every hotel, restaurant, or attraction review for any open (not permanently closed) location.
+#### The Article
+
+An 'article' on TripAdvisor Magazine has a one-to-one relationship with businesses featured on the site. In some cases, the NLP algorithm found high-quality reviews for the same business. We put a cap on three reviews per business.
+
+So an article format is as follows:
+
+__headline__: business name
+
+__image__: business image
+
+__reviews__: one to three reviews
+
+__link__: link to the businesses TripAdvisor page
 
 ## No APIs
 
-TripAdvisor does have public-facing APIs, but we were unfamiliar with the limitations of that interface. Using internal databases allowed us to access review and location data in a more holistic way. These databases are also what we had been using for our normal jobs all summer.
-
+TripAdvisor does have public-facing APIs, but we were unfamiliar with that interface and any possible limitations it might come with. Using internal databases allowed us to access review and location data in a more holistic way. These databases are also what we had been using for our normal jobs all summer.
 
 We recognize that a large-scale implementation of this project would involve adjustments to allow for regularly scheduled NLP-based content decisions.
 
-We used internal databases to pull review and location data. This project only covers one city, but even that involved sorting through every review
+## Photograpghy
+
+We chose to focus the project on language processing and front-end web development to best display our findings.
+
+There are less than 30 locations featured on TripAdvisor Magazine, so we chose to find photos for each of those manually.
 
 ## Deployment
 
 During the hackathon, we hosted the application on our laptops. 
 
-Now, its deployed on a Heroku server that uses this github repository as its source
+After the summer, I deployed TripAdvisor Magazine to a Heroku server that uses this GitHub repository as its source.
 
 ## Future Project Ideas
 
-Ideally, this project is entirely independent of access to internal databases. It is possible that one could conduct a similar data gathering process using their public-facing APIs. However, our project depended on internal datasets and the company's database server power to access that information in a reasonable amount of time.
+The next major steps in developing TripAdvisor Magazine are to expand location coverage and to set up reoccuring NLP execution.
+
+Another next step would be to rebuild the data collection process around what is possible with public-facing APIs.
+Ideally, this project would also be entirely independent of access to internal databases. Our project depended on internal datasets and the company's database server power to access that information in a reasonable amount of time. 
