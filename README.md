@@ -13,9 +13,11 @@ Many of the articles in TripAdvisor Magazine truly are incredible. All are origi
 __This piece on the [Charles Dickens Museum](https://tripadvisor-magazine.herokuapp.com/article/188889)__ is the story of someone who rediscovered some of their favorite childhood literature.
 > "More than any other London attraction, I felt a knot of excitement in my stomach as I turned into Doughty St. and made my way to No. 48. And there it was; standing unadorned except for two discrete signs proclaiming its famous former occupant."
 
-Here's __[a piece on Buckingham Palace](https://tripadvisor-magazine.herokuapp.com/article/187549)__ about someone whose experience was greatly enhanced by the location's handicap accessiblity.
+Here's a piece on the [Vanilla Black](https://tripadvisor-magazine.herokuapp.com/article/1215838) restaurant. It's incredibly descriptive of both experience and food.
 
-Just to be clear: not every article in TripAdvisor Magazine is going to win a Pulitzer! Our NLP algorithm was not perfect. But please go read through some of them!
+And here's __[a piece on Buckingham Palace](https://tripadvisor-magazine.herokuapp.com/article/187549)__ about someone whose experience was greatly enhanced by the location's handicap accessiblity.
+
+Just to be clear: not every article in TripAdvisor Magazine is going to win a Pulitzer! Our NLP algorithm was not perfect. There are some examples of frightening capitalization. But please go read through some of them!
 
 ## Who, What, When
 
