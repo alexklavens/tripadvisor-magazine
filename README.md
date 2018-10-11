@@ -4,6 +4,11 @@
 
 TripAdvisor Magazine is a magazine-style publication. It's content: the most well-written reviews on TripAdvisor.
 
+There are millions of reviews on TripAdvisor, often containing a few sentences of praise or frustration.
+But among those millions, there are some beautiful, compelling, and lengthy travel essays!
+
+## Who
+
 TripAdvisor Magazine is a product I built with a group for TripAdvisor's
 summer intern hackathon.
 
@@ -12,25 +17,29 @@ summer intern hackathon.
 * Jonathan Tseng -- Software Engineering Intern
 * Chloe Smith -- Product Management Intern
 
-My mom *loves* writing reviews on TripAdvisor. She takes the time to write throughough, informative, and helpful reviews.
-
-I thought that amongst the millions of travel reviews already on TripAdvisor, there must be some examples of incredibly high-quality writing, and that TripAdvisor users might .
-
-
 ## Data and Population
 
-We make the assumption that this project, at any scale, should not depend on real-time data gathering and language processing.
+We analyzed all reviews of currently-open hotels, restaurants, and attractions in London.
+
+We used TripAdvisor's internal databases and APIs, rather than public-facing ones.
+
+We make the assumption that this project, at any scale, should not depend on real-time data gathering and language processing. Analyzing all reviews -- even just for London -- takes a while! The content is not likely to drastically change at any given moment. See below...
 
 We decided to run database querries and execute NLP offline and store our final results in a way that we could easily process on our server.
 
 In a larger-scale version of this project, this should be done automatically on a reoccuring basis.
 
-
-
-
 ## Natural Language Processing
 
-## The CMS
+How did we define "good" or "high-quality" writing?
+
+Our NLP algorithm analyzed each review for features such as sentiment, spelling accuracy, word complexity, and more.
+
+We also placed some manual filters in the image of editorial submission standards: a minimum word count, a minimum rating, etc.
+
+## The Web App
+
+We built a Flask application to serve TripAdvisor Magazine
 
 ## Which Locations and Reviews Are Eligible?
 
@@ -45,7 +54,11 @@ We recognize that a large-scale implementation of this project would involve adj
 
 We used internal databases to pull review and location data. This project only covers one city, but even that involved sorting through every review
 
+## Deployment
 
+During the hackathon, we hosted the application on our laptops. 
+
+Now, its deployed on a Heroku server that uses this github repository as its source
 
 ## Future Project Ideas
 
