@@ -8,7 +8,7 @@ TripAdvisor Magazine is a new form of travel media. Its content comes from a non
 
 ## The Magazine and Its Content
 
-Many of the articles in TripAdvisor Magazine truly are incredible. Here are a few examples of my favorites:
+Many of the articles in TripAdvisor Magazine truly are incredible. All are original reviews that were identified as the best of the best. None of the content has been manipulated (no editing, no punctuation fixes, etc.). Here are a few examples of my favorites:
 
 __This piece on the [Charles Dickens Museum](https://tripadvisor-magazine.herokuapp.com/article/188889)__ is the story of someone who rediscovered some of their favorite childhood literature.
 > "More than any other London attraction, I felt a knot of excitement in my stomach as I turned into Doughty St. and made my way to No. 48. And there it was; standing unadorned except for two discrete signs proclaiming its famous former occupant."
