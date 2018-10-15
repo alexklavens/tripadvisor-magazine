@@ -55,7 +55,7 @@ The final product of the language processing was a table where each row was a re
 
 We built a Flask application to serve TripAdvisor Magazine using Jinja HTML templating. The app unpacks the Pickle object and uses the Pandas dataframe to generate review and location objects. Each location has a unique id, which is also the same id for that business used in TripAdvisor's main databases and website.
 
-The site serves three main types of pag templates: a home page featuring previews of all available articles, a template for the three verticals (hotels, restaurants, attractions), and an article template.
+The site serves three main types of page templates: a home page featuring previews of all available articles, a template for the three verticals (hotels, restaurants, attractions), and an article template.
 
 #### The Article
 
