@@ -1,5 +1,13 @@
+############ This module is from an older version of the project. It took in a pickle file
+############ with all the data and created python objects to serve to the site.
+############ The site now uses the Contentful CMS. The data has not changed,
+############ but I altered the project to learn more about CMS integration
+
+
+
 # This module exists to transform a pickle object into a python dictionary
 # That dictionary will act as the data source for content management
+
 
 import random
 import pickle

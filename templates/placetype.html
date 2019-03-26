@@ -6,24 +6,30 @@
 {% endblock %}
 {% block content %}
   {% if feed %}
-    <h1 id="placetype"> {{ feed[0].placetype_name.lower().capitalize() ~ 's' }} </h1>
+    <h1 id="placetype"> {{ placetype }} </h1>
 
     {% for location in feed %}
-      <div class="container">
-        <div id="name">
-          <!-- <a href={{ location.article_url }}><h2> {{ location.name }} </h2></a> -->
-          <a href={{ location.article_url }}>
-            <h2>{{ location.name }}</h2> </a>
-            <p class='rev-preview'>
-              {{ location.review_preview}}
-            </p>
+      {% if location.placetype_name == placetype[:-1].lower() %}
+        <div class="container">
+          <div id="name">
+            <a href={{ location.article_url }}>
+              <div id="image">
+                <a href={{ location.article_url }}>
+                <img src={{ location.image_url }}/>
+                </a>
+              </div>
+            </a>
+            <a href={{ location.article_url }}>
+              <h2>{{ location.name }}</h2>
+            </a>
+
+              <p class='rev-preview'>
+                {{ location.location_preview}}
+              </p>
+          </div>
+
         </div>
-        <div id="image">
-          <a href={{ location.article_url }}>
-          <img src={{ location.image_url }}/>
-          </a>
-        </div>
-      </div>
+      {% endif %}
     {% endfor %}
   {% endif %}
 {% endblock %}

@@ -13,7 +13,8 @@
 
 
   <h1 id="name"> {{ location.name }} </h1>
-    {% for review in location.reviews %}
+    {% for review in location.reviews%}
+      {% set review = reviews.entries().find(review.id) %}
       <article>
         <p class="review-content"> {{review.content}} </p>
         <div class='div-div'>
@@ -22,10 +23,10 @@
 
 
         <a class='username' href={{review.member_url}} target="_blank"><p class="review-title"> @{{ review.username }} </p></a>
-        <img class="review-bubble-img" src= "{{ review.rating }}"/>
+        <img class="review-bubble-img" src= "{{ review.rating_img_url }}"/>
         </div>
         <div class="second-div">
-          <p class='review-date'> {{review.date_string}}</p>
+          <p class='review-date'> {{review.date}}</p>
 
         </div>
         </div>

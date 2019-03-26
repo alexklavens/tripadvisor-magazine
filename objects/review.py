@@ -1,13 +1,25 @@
 class Review:
-    def __init__(self, review_id, member_id, username, content, rating, date):
+    def __init__(self,
+                location_name = '',
+                location_id = '',
+                location_placetype = '',
+                review_id = '',
+                member_id = '',
+                username = '',
+                content = '',
+                rating = '',
+                date = ''):
+        self.location_name = location_name
         self.review_id = review_id
         self.member_id = member_id
         self.username = username.replace(" ", "")
         self.member_url = "https://tripadvisor.com/members/"+str(self.username)
         self.content = content
-        self.rating = self.getBubbleImg(rating)
-        self.date = date
-        self.date_string = self.getDateString(date)
+        self.rating = rating
+        self.rating_img_url = self.getBubbleImg(rating)
+        self.date = self.getDateString(date)
+        self.location_id = location_id
+        self.location_placetype = location_placetype
 
     def getBubbleImg(self, rating):
         url = "http://www.tripadvisor.com/img/cdsi/img2/ratings/traveler/s" + str(rating)[0] + ".0-MCID-5.svg"
