@@ -5,6 +5,10 @@ from objects.location import Location
 import contentful_management
 import pprint
 
+import os
+CLIENT_ID = os.environ["CLIENT"]
+SPACE_ID =  os.environ["SPACEID"]
+
 def makeContentfulObject(pythonObject,content_type):
     """
     Takes a python object and turns it into a dictionary that will satisfy a contentful object
@@ -24,9 +28,9 @@ def makeContentfulObject(pythonObject,content_type):
 
 def postToContentful(python_object,content_type):
     client = contentful_management.Client(
-        'CFPAT-575c4a976867c13f14b4ae41fb51061900f18a04304086d56a5db291d850a10c'
+        CLIENT_ID
     )
-    space = client.spaces().find("3yc8cq6akrvk")
+    space = client.spaces().find(SPACE_ID)
 
 
     thisPost = makeContentfulObject(python_object,content_type)
@@ -44,16 +48,16 @@ def postToContentful(python_object,content_type):
 
 
 def makeLocationObjects():
-    # content_types = client.content_types('3yc8cq6akrvk').all()
+    # content_types = client.content_types(SPACE_ID).all()
     client = contentful_management.Client(
-        'CFPAT-575c4a976867c13f14b4ae41fb51061900f18a04304086d56a5db291d850a10c'
+        CLIENT_ID
     )
 
-    # content_type = client.content_types('3yc8cq6akrvk','master').find('review')
+    # content_type = client.content_types(SPACE_ID,'master').find('review')
     # entries = space.entries().all()
-    space = client.spaces().find("3yc8cq6akrvk")
-    reviews = client.content_types('3yc8cq6akrvk','master').find('review')
-    locations = client.content_types('3yc8cq6akrvk','master').find('location')
+    space = client.spaces().find(SPACE_ID)
+    reviews = client.content_types(SPACE_ID,'master').find('review')
+    locations = client.content_types(SPACE_ID,'master').find('location')
 
     all_reviews = reviews.entries().all()
 
@@ -120,11 +124,11 @@ def makeReviewObjects():
 
 def setToPublished():
     client = contentful_management.Client(
-        'CFPAT-575c4a976867c13f14b4ae41fb51061900f18a04304086d56a5db291d850a10c'
+        CLIENT_ID
     )
-    space = client.spaces().find("3yc8cq6akrvk")
-    reviews = client.content_types('3yc8cq6akrvk','master').find('review')
-    locations = client.content_types('3yc8cq6akrvk','master').find('location')
+    space = client.spaces().find(SPACE_ID)
+    reviews = client.content_types(SPACE_ID,'master').find('review')
+    locations = client.content_types(SPACE_ID,'master').find('location')
 
     all_reviews = reviews.entries().all()
     all_locations = locations.entries().all()
@@ -138,14 +142,26 @@ def setToPublished():
     # reviews = reviews.entries().all()
 
 
+def getImage():
+    client = contentful_management.Client(
+        CLIENT_ID
+    )
+    # space = client.spaces().find(SPACE_ID,'master')
+    assets = client.assets(SPACE_ID,"master").all()
+
+    # assets = space.assets().all()
+    for ass in assets:
+        print(ass)
+
+
 
 def seeData():
     client = contentful_management.Client(
-        'CFPAT-575c4a976867c13f14b4ae41fb51061900f18a04304086d56a5db291d850a10c'
+        CLIENT_ID
     )
-    space = client.spaces().find("3yc8cq6akrvk")
-    reviews = client.content_types('3yc8cq6akrvk','master').find('review')
-    locations = client.content_types('3yc8cq6akrvk','master').find('location')
+    space = client.spaces().find(SPACE_ID)
+    reviews = client.content_types(SPACE_ID,'master').find('review')
+    locations = client.content_types(SPACE_ID,'master').find('location')
     these_reviews = (locations.entries().find("236350").reviews)
 
     thisLocation = locations.entries().find("236350")
@@ -157,7 +173,7 @@ def main():
     # makeReviewObjects()
     # makeLocationObjects()
     # setToPublished()
-    seeData()
+    getImage()
 
 if __name__ == '__main__':
     main()

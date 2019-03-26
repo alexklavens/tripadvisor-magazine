@@ -7,18 +7,23 @@ from objects.generate_data_set import LocationData
 import contentful_management
 import random
 
+import os
+
 
 
 app = Flask(__name__)
+CLIENT_ID = os.environ["CLIENT"]
+SPACE_ID =  os.environ["SPACEID"]
+
 # location_data = LocationData('data/london.pkl')
 
 
 client = contentful_management.Client(
-    'CFPAT-575c4a976867c13f14b4ae41fb51061900f18a04304086d56a5db291d850a10c'
+    CLIENT_ID
 )
-space = client.spaces().find("3yc8cq6akrvk")
-locations = client.content_types('3yc8cq6akrvk','master').find('location')
-reviews = client.content_types('3yc8cq6akrvk','master').find('location')
+space = client.spaces().find(SPACE_ID)
+locations = client.content_types(SPACE_ID,'master').find('location')
+reviews = client.content_types(SPACE_ID,'master').find('location')
 
 @app.route('/')
 @app.route('/home')
