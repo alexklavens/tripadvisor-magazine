@@ -81,9 +81,10 @@ def attractions():
 
 @app.errorhandler(404)
 def page_not_found(e):
-    """ 404 error will return a link to a randomly chosen article """
+    location_ids = [item.id  for item in locations.entries().all()]
+    random.shuffle(location_ids)
 
-    link = "/article/" + str(location_data.getRandomLocation())
+    link = "/article/" + location_ids[0]
     return render_template('404.html', link=link), 404
 
 
