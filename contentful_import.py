@@ -6,8 +6,8 @@ import contentful_management
 import pprint
 
 import os
-CLIENT_ID = os.environ["CLIENT"]
-SPACE_ID =  os.environ["SPACEID"]
+CLIENT_ID = "CFPAT-575c4a976867c13f14b4ae41fb51061900f18a04304086d56a5db291d850a10c" #os.environ["CLIENT"]
+SPACE_ID =  "3yc8cq6akrvk" #os.environ["SPACEID"]
 
 def makeContentfulObject(pythonObject,content_type):
     """
@@ -74,6 +74,7 @@ def makeLocationObjects():
                         name = first_review.location_name,
                         location_id = first_review.location_id,
                         placetype_name = first_review.location_placetype,
+                        # image_url = getImageURLByLocationId(location_id))
                         image_url = '/static/images/' + str(first_review.location_id) + '.jpg')
         postToContentful(newLocation,'location')
 
@@ -138,22 +139,20 @@ def setToPublished():
 
     for item in all_locations:
         item.publish()
-    #
-    # reviews = reviews.entries().all()
 
 
-def getImage():
-    client = contentful_management.Client(
-        CLIENT_ID
-    )
-    # space = client.spaces().find(SPACE_ID,'master')
-    assets = client.assets(SPACE_ID,"master").all()
 
-    # assets = space.assets().all()
-    for ass in assets:
-        print(ass)
-
-
+# def getImageURLByLocationId(location_id):
+#     client = contentful_management.Client(
+#         CLIENT_ID
+#     )
+#     # space = client.spaces().find(SPACE_ID,'master')
+#     assets = client.assets(SPACE_ID,"master").all()
+#
+#     # assets = space.assets().all()
+#     for item in assets:
+#         if item.title == location_id:
+#             return item.url()
 
 def seeData():
     client = contentful_management.Client(
@@ -169,11 +168,14 @@ def seeData():
         print(item.id)
 
 
+
+
 def main():
     # makeReviewObjects()
     # makeLocationObjects()
     # setToPublished()
-    getImage()
+    # print(getImageURLByLocationId("1215838"))
+    # addImages()
 
 if __name__ == '__main__':
     main()

@@ -12,8 +12,10 @@ import os
 
 
 app = Flask(__name__)
-CLIENT_ID = os.environ["CLIENT"]
-SPACE_ID =  os.environ["SPACEID"]
+# CLIENT_ID = os.environ["CLIENT"]
+# SPACE_ID =  os.environ["SPACEID"]
+CLIENT_ID = "CFPAT-575c4a976867c13f14b4ae41fb51061900f18a04304086d56a5db291d850a10c" #os.environ["CLIENT"]
+SPACE_ID =  "3yc8cq6akrvk" #os.environ["SPACEID"]
 
 # location_data = LocationData('data/london.pkl')
 
