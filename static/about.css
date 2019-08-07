@@ -1,0 +1,47 @@
+#content {
+  max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+  padding-bottom: 13px;
+    border-bottom: 1px solid gray;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+
+h2 {
+  border-bottom: 1px solid lightgray;
+}
+
+h4 {
+  text-decoration: underline;
+}
+
+blockquote {
+  color: gray;
+  border-left: 3px solid gray;
+  padding-left: 10px;
+}
+
+#content a {
+  color: blue;
+}
+
+.bolder {
+  font-weight: 900;
+}
+
+
+
+
+@media screen and (max-width: 430px) {
+
+  #content {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+}

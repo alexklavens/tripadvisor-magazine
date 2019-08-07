@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+{% block title %}{{ about }}{% endblock %}
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">
+{% endblock %}
+{% block content %}
+
+<div id="content">
+  <h1>About TripAdvisor Magazine</h1>
+<p> <a href="/">TripAdvisor Magazine</a> is a web-based magazine-style publication that identifies high quality travel reviews with <a href="https://en.wikipedia.org/wiki/Natural_language_processing">natural language processing</a> and features them as articles.</p>
+<p>There are millions of reviews on TripAdvisor, often containing a few sentences of praise or frustration. But among those millions, there are some beautiful, compelling, and lengthy travel essays!</p>
+<p>TripAdvisor Magazine is a new form of travel media. Its content comes from a non-editorial context, one where a consumer experience is featured in the context of a business profile.</p>
+<p><p class="bolder">UPDATE: The current version of TripAdvisor Magazine uses Contentful as its CMS. Though the data behind the current project has not changed and will not change, I altered this project to learn about how to integrate a formal CMS.</p></p>
+<h2>The Magazine and Its Content</h2>
+<p>Many of the articles in TripAdvisor Magazine truly are incredible. All are original reviews that were identified as the best of the best. None of the content has been manipulated (no editing, no punctuation fixes, etc.). Here are a few examples of my favorites:</p>
+<p>This piece on the <a class="internalLink" href="/article/188889">Charles Dickens Museum</a> is the story of someone who rediscovered some of their favorite childhood literature.</p>
+<blockquote>
+<p>&quot;More than any other London attraction, I felt a knot of excitement in my stomach as I turned into Doughty St. and made my way to No. 48. And there it was; standing unadorned except for two discrete signs proclaiming its famous former occupant.&quot;</p>
+</blockquote>
+<p>Here&#39;s a piece on the <a class="internalLink" href="/article/1215838">Vanilla Black</a> restaurant. It&#39;s incredibly descriptive of both experience and food.</p>
+<p>And here&#39;s <a class="internalLink" href="/article/187549">a piece on Buckingham Palace</a> about someone whose experience was greatly enhanced by the location&#39;s handicap accessiblity.</p>
+<p>Just to be clear: not every article in TripAdvisor Magazine is going to win a Pulitzer! Our NLP algorithm was not perfect. There are some examples of frightening capitalization. But please go read through some of them!</p>
+<h2 id="who-what-when">Who, What, When</h2>
+<p>TripAdvisor Magazine is a product I built with a group for TripAdvisor&#39;s
+summer intern hackathon during July 2018.</p>
+<ul>
+<li>Alex Klavens -- Data Analytics Intern</li>
+<li>Mihir Ranha -- Data Science Intern</li>
+<li>Chloe Smith -- Product Management Intern</li>
+<li>Jonathan Tseng -- Software Engineering Intern</li>
+</ul>
+<h2 id="data-and-population">Data and Population</h2>
+<p>We analyzed all reviews of currently-open hotels, restaurants, and attractions in London.</p>
+<p>We used TripAdvisor&#39;s internal databases and APIs, rather than public-facing ones.</p>
+<p>We make the assumption that this project, at any scale, should not depend on real-time data gathering and language processing. Analyzing all reviews -- even just for London -- takes a while!</p>
+<p>We decided to run database queries and execute NLP offline and store our final results in a way that we could easily process on our server.</p>
+<h2 id="natural-language-processing">Natural Language Processing</h2>
+<p>How did we define &quot;good&quot; or &quot;high-quality&quot; writing?</p>
+<p>Our NLP algorithm analyzed each review for features such as sentiment, spelling accuracy, word complexity, and more.</p>
+<p>We also placed some manual filters in the image of editorial submission standards: a minimum word count, a minimum rating, etc.</p>
+<p>The final product of the language processing was a table where each row was a review. The process exports a Pickle object containing the table as a Pandas DataFrame.</p>
+<h2 id="contentful-data-import">Contentful Data Import</h2>
+<p>The new version of TripAdvisor Magazine pulls its data from Contentful. At a real world magazine, an editor might upload articles to their CMS. Now that can theoretically happen with TripAdvisor Magazine.</p>
+<p>Rather than manually inputing the data for the existing articles, I used Contentful&#39;s content management API to upload individual reviews, and then make articles out of those reviews. The project&#39;s images have not been integrated into Contentful.</p>
+<h2 id="the-web-app">The Web App</h2>
+<h4 id="pre-cms">Pre-CMS</h4>
+<p>We built a Flask application to serve TripAdvisor Magazine using Jinja HTML templating. The app unpacks the Pickle object and uses the Pandas dataframe to generate review and location objects. Each location has a unique id, which is also the same id for that business used in TripAdvisor&#39;s main databases and website.</p>
+<p>The site serves three main types of page templates: a home page featuring previews of all available articles, a template for the three verticals (hotels, restaurants, attractions), and an article template.</p>
+<h4 id="current-with-the-cms">Current, with the CMS</h4>
+<p>The Flask app continues to serve TripAdvisor Magazine using Jinja templating. Rather than getting data from a Pickle object, the app makes calls to Contentful&#39;s Content Management API.</p>
+<h4 id="the-article">The Article</h4>
+<p>An &#39;article&#39; on TripAdvisor Magazine has a one-to-one relationship with businesses featured on the site. In some cases, the NLP algorithm found high-quality reviews for the same business. We put a cap on three reviews per business.</p>
+<p>So an article format is as follows:</p>
+<p>headline: business name</p>
+<p>image: business image</p>
+<p>reviews: one to three reviews</p>
+<p>link: link to the businesses TripAdvisor page</p>
+<h2 id="no-apis">No APIs</h2>
+<p>TripAdvisor does have public-facing APIs, but we were unfamiliar with that interface and any possible limitations it might come with. Using internal databases allowed us to access review and location data in a more holistic way. These databases are also what we had been using for our normal jobs all summer.</p>
+<p>We recognize that a large-scale implementation of this project would involve adjustments to allow for regularly scheduled NLP-based content decisions.</p>
+<h2 id="photography">Photography</h2>
+<p>We chose to focus the project on language processing and front-end web development to best display our findings.</p>
+<p>There are less than 30 locations featured on TripAdvisor Magazine, so we chose to find photos for each of those manually.</p>
+<h2 id="deployment">Deployment</h2>
+<p>During the hackathon, we hosted the application on our laptops.</p>
+<p>After the summer, I deployed TripAdvisor Magazine to a Heroku server that uses this GitHub repository as its source.</p>
+<h2 id="mobile-web-">Mobile Web.</h2>
+<p>The updated version of TripAdvisor Magazine contains small CSS changes that make the website look much prettier on mobile web.</p>
+<h2 id="future-project-ideas">Future Project Ideas</h2>
+<p>The next major steps in developing TripAdvisor Magazine are to expand location coverage and to set up continuous NLP execution.</p>
+<p>Another next step would be to rebuild the data collection process around what is possible with public-facing APIs.
+Ideally, this project would also be entirely independent of access to internal databases. Our project depended on internal datasets and the company&#39;s database server power to access that information in a reasonable amount of time.</p>
+
+</div>
+
+{% endblock %}

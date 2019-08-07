@@ -79,6 +79,9 @@ def attractions():
     return render_template('placetype.html',
                            placetype='Attractions', feed=locations.entries().all())
 
+@app.route("/about")
+def about():
+    return render_template('about.html')
 
 
 @app.errorhandler(404)

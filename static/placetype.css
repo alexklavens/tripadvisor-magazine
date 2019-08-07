@@ -84,9 +84,10 @@ h2 {
     /* grid-template-rows: min-content auto; */
     /* grid-gap: 40px; */
     padding: 20px 10px 20px 10px;
-
+    
     border-bottom: 1px solid silver;
   }
+
 
   /* h1 {
     padding-left: 10px;

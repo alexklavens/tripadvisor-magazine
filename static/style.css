@@ -59,6 +59,19 @@ nav a {
   float: none;
 }
 
+#footerText {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#footerText a {
+  text-decoration: underline;
+}
+
+#footerText a:hover {
+  opacity: .9;
+}
+
 @media screen and (max-width: 430px) {
   header h1 {
     font-size: 20px;
